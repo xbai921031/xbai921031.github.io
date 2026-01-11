@@ -5,7 +5,7 @@ class AboutComponent {
     }
 
     render() {
-        const { about, personalInfo, socialLinks } = this.config;
+        const { about } = this.config;
         
         return `
             <section id="about" class="section">
@@ -20,9 +20,9 @@ class AboutComponent {
                             </p>
                         `).join('')}
 
-                        <!-- Skills -->
+                        <!-- Expertise -->
                         <div class="mt-2">
-                            <h3 style="margin-bottom: 1rem; color: var(--accent-blue);">Core Expertise</h3>
+                            <h3 style="margin-bottom: 1rem; color: var(--accent-blue);">Expertise</h3>
                             <div class="grid-3" style="margin-top: 1rem;">
                                 <div class="text-center" style="padding: 1rem; background: rgba(26, 31, 46, 0.4); border-radius: var(--border-radius);">
                                     <i class="fas fa-microchip" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 0.5rem;"></i>
@@ -39,54 +39,6 @@ class AboutComponent {
                                     <h4>Game Development</h4>
                                     <p style="font-size: 0.9rem; color: #a0aec0;">Godot 2D games development</p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contact info -->
-                    <div class="mt-2">
-                        <h3 style="color: var(--accent-green); margin-bottom: 1rem;">Contact</h3>
-
-                        <div style="margin-bottom: 1.5rem;">
-                            <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
-                                <i class="fas fa-envelope" style="color: var(--accent-blue);"></i>
-                                <a href="mailto:${personalInfo.email}" 
-                                   style="color: #a0aec0; text-decoration: none;">
-                                    ${personalInfo.email}
-                                </a>
-                            </div>
-                            
-                            <div style="display: flex; align-items: center; gap: 0.8rem;">
-                                <i class="fas fa-map-marker-alt" style="color: var(--accent-green);"></i>
-                                <span style="color: #a0aec0;">${personalInfo.location}</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h4 style="color: #a0aec0; font-size: 0.9rem; margin-bottom: 0.8rem;">Follow Me</h4>
-                            <div class="footer-social" style="display: flex; gap: 1rem;">
-                                ${socialLinks.map(link => `
-                                    <a href="${link.url}" 
-                                       target="_blank"
-                                       style="
-                                            color: var(--text-color);
-                                            font-size: 1.2rem;
-                                            padding: 0.5rem;
-                                            border-radius: 50%;
-                                            background: rgba(26, 31, 46, 0.8);
-                                            width: 40px;
-                                            height: 40px;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                            transition: all 0.3s;
-                                            text-decoration: none;
-                                       "
-                                       onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(0, 217, 255, 0.2)'"
-                                       onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(26, 31, 46, 0.8)'">
-                                        <i class="${link.icon}"></i>
-                                    </a>
-                                `).join('')}
                             </div>
                         </div>
                     </div>

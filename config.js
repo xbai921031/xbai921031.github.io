@@ -6,7 +6,7 @@ window.siteConfig = {
         title: "Embedded Software Engineer",
         email: "573793689@qq.com",
         location: "Shenzhen, China",
-        skills: ["C/C++", "Python", "RTOS", "Godot"]
+        avatar: "assets/images/avatar.jpg"
     },
 
     /* Social media links */
