@@ -12,7 +12,7 @@ class ProjectsComponent {
         
         return `
             <section id="projects" class="section">
-                <h2 class="section-title">Project Portfolio</h2>
+                <h2 class="section-title">Projects</h2>
                 
                 <!-- Category navigation -->
                 <div class="project-categories flex-center mb-2" style="gap: 1rem; flex-wrap: wrap;">

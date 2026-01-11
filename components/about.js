@@ -27,39 +27,20 @@ class AboutComponent {
                                 <div class="text-center" style="padding: 1rem; background: rgba(26, 31, 46, 0.4); border-radius: var(--border-radius);">
                                     <i class="fas fa-microchip" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 0.5rem;"></i>
                                     <h4>Embedded Systems</h4>
-                                    <p style="font-size: 0.9rem; color: #a0aec0;">Firmware, RTOS, IoT, PCB</p>
+                                    <p style="font-size: 0.9rem; color: #a0aec0;">Embedded software development in automotive industry</p>
                                 </div>
                                 <div class="text-center" style="padding: 1rem; background: rgba(26, 31, 46, 0.4); border-radius: var(--border-radius);">
                                     <i class="fas fa-brain" style="font-size: 2rem; color: var(--accent-purple); margin-bottom: 0.5rem;"></i>
                                     <h4>Artificial Intelligence</h4>
-                                    <p style="font-size: 0.9rem; color: #a0aec0;">CV, NLP, Edge AI, ML Ops</p>
+                                    <p style="font-size: 0.9rem; color: #a0aec0;">Edge AI deployment on microcontrollers</p>
                                 </div>
                                 <div class="text-center" style="padding: 1rem; background: rgba(26, 31, 46, 0.4); border-radius: var(--border-radius);">
                                     <i class="fas fa-gamepad" style="font-size: 2rem; color: var(--accent-green); margin-bottom: 0.5rem;"></i>
                                     <h4>Game Development</h4>
-                                    <p style="font-size: 0.9rem; color: #a0aec0;">Unity, Pixel Art, Game Design</p>
+                                    <p style="font-size: 0.9rem; color: #a0aec0;">Godot 2D games development</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Current status -->
-                    <div style="background: rgba(26, 31, 46, 0.8); padding: 1.5rem; border-radius: var(--border-radius);">
-                        <h3 style="margin-bottom: 1rem; color: var(--accent-green);">Current Focus</h3>
-                        <ul style="list-style: none; padding-left: 0;">
-                            <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-blue);"></i>
-                                Edge AI deployment on microcontrollers
-                            </li>
-                            <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-purple);"></i>
-                                Procedural generation for 2D games
-                            </li>
-                            <li style="padding-left: 1.5rem; position: relative;">
-                                <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-green);"></i>
-                                Open-source embedded tools development
-                            </li>
-                        </ul>
                     </div>
 
                     <!-- Contact info -->

@@ -15,8 +15,6 @@ class PortfolioApp {
             header: window.HeaderComponent ? new window.HeaderComponent(this.config) : null,
             about: window.AboutComponent ? new window.AboutComponent(this.config) : null,
             projects: window.ProjectsComponent ? new window.ProjectsComponent(this.config) : null,
-            experience: window.ExperienceComponent ? new window.ExperienceComponent(this.config) : null,
-            contact: window.ContactComponent ? new window.ContactComponent(this.config) : null,
             footer: window.FooterComponent ? new window.FooterComponent(this.config) : null
         };
     }
@@ -32,7 +30,7 @@ class PortfolioApp {
         this.appContainer.innerHTML = '';
         
         /* Render components */
-        const componentOrder = ['header', 'about', 'projects', 'contact', 'footer'];
+        const componentOrder = ['header', 'about', 'projects', 'footer'];
         
         componentOrder.forEach(componentName => {
             const component = this.components[componentName];
@@ -53,14 +51,6 @@ class PortfolioApp {
     setupComponentFeatures() {
         if (this.components.projects && typeof this.components.projects.setupFiltering === 'function') {
             setTimeout(() => this.components.projects.setupFiltering(), 100);
-        }
-
-        if (this.components.experience && typeof this.components.experience.setupTimelineAnimation === 'function') {
-            setTimeout(() => this.components.experience.setupTimelineAnimation(), 200);
-        }
-
-        if (this.components.contact && typeof this.components.contact.setupContactForm === 'function') {
-            setTimeout(() => this.components.contact.setupContactForm(), 100);
         }
 
         if (this.components.footer && typeof this.components.footer.setupBackToTop === 'function') {
@@ -132,26 +122,6 @@ class PortfolioApp {
         });
     }
 
-    toggleTheme() {
-        this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-        document.body.classList.toggle('light-theme');
-        document.body.classList.toggle('dark-theme');
-
-        localStorage.setItem('portfolio-theme', this.currentTheme);
-
-        const themeToggle = document.getElementById('theme-toggle');
-        if (themeToggle) {
-            const icon = themeToggle.querySelector('i');
-            if (this.currentTheme === 'light') {
-                icon.className = 'fas fa-sun';
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-            } else {
-                icon.className = 'fas fa-moon';
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-            }
-        }
-    }
-    
     /* Add new components */
     addComponent(name, componentClass) {
         this.components[name] = new componentClass(this.config);

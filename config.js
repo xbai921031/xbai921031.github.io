@@ -18,9 +18,6 @@ window.siteConfig = {
     about: {
         paragraphs: [
             "Automotive software engineer by day, diving into game dev and AI theory by night. Ravenclaw with a 🐈."
-        ],
-        stats: [
-            { value: "10+", label: "Years Experience" }
         ]
     },
 

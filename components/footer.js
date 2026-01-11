@@ -9,56 +9,25 @@ class FooterComponent {
         
         return `
             <footer id="footer" class="section">
+                <div style="
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                ">
                 <div class="grid-3">
-                    <!-- Contact info -->
-                    <div class="footer-section">
-                        <h3 style="color: var(--accent-green); margin-bottom: 1rem;">Contact</h3>
-
-                        <div style="margin-bottom: 1.5rem;">
-                            <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
-                                <i class="fas fa-envelope" style="color: var(--accent-blue);"></i>
-                                <a href="mailto:${personalInfo.email}" 
-                                   style="color: #a0aec0; text-decoration: none;">
-                                    ${personalInfo.email}
-                                </a>
-                            </div>
-                            
-                            <div style="display: flex; align-items: center; gap: 0.8rem;">
-                                <i class="fas fa-map-marker-alt" style="color: var(--accent-green);"></i>
-                                <span style="color: #a0aec0;">${personalInfo.location}</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h4 style="color: #a0aec0; font-size: 0.9rem; margin-bottom: 0.8rem;">Follow Me</h4>
-                            <div class="footer-social" style="display: flex; gap: 1rem;">
-                                ${socialLinks.map(link => `
-                                    <a href="${link.url}" 
-                                       target="_blank"
-                                       style="
-                                            color: var(--text-color);
-                                            font-size: 1.2rem;
-                                            padding: 0.5rem;
-                                            border-radius: 50%;
-                                            background: rgba(26, 31, 46, 0.8);
-                                            width: 40px;
-                                            height: 40px;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                            transition: all 0.3s;
-                                            text-decoration: none;
-                                       "
-                                       onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(0, 217, 255, 0.2)'"
-                                       onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(26, 31, 46, 0.8)'">
-                                        <i class="${link.icon}"></i>
-                                    </a>
-                                `).join('')}
-                            </div>
-                        </div>
+                    <!-- Left -->
+                    <div>
+                        ${footer.left || ''}
+                    </div>
+                    <!-- Center -->
+                    <div>
+                        ${footer.center || ''}
+                    </div>
+                    <!-- Right -->
+                    <div>
+                        ${footer.right || ''}
                     </div>
                 </div>
-                
                 <!-- Bottom -->
                 <div style="
                     margin-top: 2rem;
@@ -69,7 +38,6 @@ class FooterComponent {
                     <!-- Copyright information -->
                     <div style="margin-bottom: 1rem;">
                         <p style="color: #a0aec0; margin-bottom: 0.5rem;">${footer.copyright}</p>
-                        <p style="color: #718096; font-size: 0.9rem;">${footer.note}</p>
                     </div>
                     
                     <!-- Tech-stack -->
@@ -101,123 +69,9 @@ class FooterComponent {
                             color: var(--accent-green);
                         ">GitHub Pages</span>
                     </div>
-                    
-                    <!-- Footer Navigation -->
-                    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;">
-                        <a href="/privacy" 
-                           style="color: #a0aec0; font-size: 0.8rem; text-decoration: none;"
-                           onmouseover="this.style.color='var(--accent-blue)'"
-                           onmouseout="this.style.color='#a0aec0'">
-                            Privacy Policy
-                        </a>
-                        
-                        <a href="/terms" 
-                           style="color: #a0aec0; font-size: 0.8rem; text-decoration: none;"
-                           onmouseover="this.style.color='var(--accent-purple)'"
-                           onmouseout="this.style.color='#a0aec0'">
-                            Terms of Service
-                        </a>
-                        
-                        <a href="/sitemap" 
-                           style="color: #a0aec0; font-size: 0.8rem; text-decoration: none;"
-                           onmouseover="this.style.color='var(--accent-green)'"
-                           onmouseout="this.style.color='#a0aec0'">
-                            Sitemap
-                        </a>
-                        
-                        <button id="theme-toggle" 
-                                style="
-                                    background: none;
-                                    border: none;
-                                    color: #a0aec0;
-                                    font-size: 0.8rem;
-                                    cursor: pointer;
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 0.5rem;
-                                "
-                                onmouseover="this.style.color='var(--accent-blue)'"
-                                onmouseout="this.style.color='#a0aec0'">
-                            <i class="fas fa-moon"></i>
-                            Dark Mode
-                        </button>
-                    </div>
-                    
-                    <!-- Back to top -->
-                    <button id="back-to-top" 
-                            style="
-                                position: fixed;
-                                bottom: 20px;
-                                right: 20px;
-                                width: 50px;
-                                height: 50px;
-                                border-radius: 50%;
-                                background: var(--accent-blue);
-                                border: none;
-                                color: white;
-                                font-size: 1.5rem;
-                                cursor: pointer;
-                                display: none;
-                                align-items: center;
-                                justify-content: center;
-                                transition: all 0.3s;
-                                z-index: 1000;
-                            "
-                            onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 0 20px rgba(0, 217, 255, 0.5)'"
-                            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-                        <i class="fas fa-arrow-up"></i>
-                    </button>
                 </div>
             </footer>
         `;
-    }
-
-    setupBackToTop() {
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'flex';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    setupThemeToggle() {
-        const themeToggle = document.getElementById('theme-toggle');
-        const icon = themeToggle.querySelector('i');
-        
-        themeToggle.addEventListener('click', () => {
-            const isDark = document.body.classList.toggle('light-theme');
-            
-            if (isDark) {
-                document.body.classList.remove('dark-theme');
-                document.body.classList.add('light-theme');
-                icon.className = 'fas fa-sun';
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-            } else {
-                document.body.classList.remove('light-theme');
-                document.body.classList.add('dark-theme');
-                icon.className = 'fas fa-moon';
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-            }
-
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-        });
-
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-theme');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-        }
     }
 
     setupSmoothScroll() {
@@ -239,30 +93,8 @@ class FooterComponent {
     }
 }
 
-/* Theme switch */
+/* Theme */
 const themeStyles = `
-    /* Light theme */
-    body.light-theme {
-        --primary-color: #f8fafc;
-        --secondary-color: #e2e8f0;
-        --text-color: #1a202c;
-        background-color: var(--primary-color);
-        color: var(--text-color);
-    }
-    
-    body.light-theme .section {
-        background-color: rgba(226, 232, 240, 0.8);
-        border: 1px solid rgba(203, 213, 224, 0.5);
-    }
-    
-    body.light-theme .project-card {
-        background-color: var(--secondary-color);
-    }
-    
-    body.light-theme .tech-item {
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-    
     /* Dark theme */
     body.dark-theme {
         --primary-color: #0a0e17;
