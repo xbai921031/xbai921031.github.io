@@ -111,6 +111,44 @@ class HeaderComponent {
                             margin-top: 1.2rem;
                             flex-wrap: wrap;
                         ">
+                            <!-- Location -->
+                            <div style="
+                                display: flex;
+                                align-items: center;
+                                gap: 0.5rem;
+                                padding: 0.3rem 0.6rem;
+                                border-radius: 4px;
+                                transition: all 0.2s ease;
+                            "
+                            onmouseover="
+                                this.style.background='rgba(157, 78, 221, 0.05)';
+                                this.style.color='#e2e8f0';
+                            "
+                            onmouseout="
+                                this.style.background='transparent';
+                                this.style.color='#94a3b8';
+                            ">
+                                <i class="fas fa-map-marker-alt" style="
+                                    font-size: 1rem;
+                                    color: #94a3b8;
+                                "></i>
+                                <span style="
+                                    font-size: 0.95rem;
+                                    color: #94a3b8;
+                                    font-weight: 400;
+                                ">
+                                    ${personalInfo.location}
+                                </span>
+                            </div>
+                            
+                            <!-- Separator -->
+                            <div style="
+                                width: 3px;
+                                height: 3px;
+                                border-radius: 50%;
+                                background: rgba(148, 163, 184, 0.15);
+                            "></div>
+                            
                             <!-- Email -->
                             <a href="mailto:${personalInfo.email}" 
                                style="
@@ -150,45 +188,7 @@ class HeaderComponent {
                                 border-radius: 50%;
                                 background: rgba(148, 163, 184, 0.15);
                             "></div>
-                            
-                            <!-- Location -->
-                            <div style="
-                                display: flex;
-                                align-items: center;
-                                gap: 0.5rem;
-                                padding: 0.3rem 0.6rem;
-                                border-radius: 4px;
-                                transition: all 0.2s ease;
-                            "
-                            onmouseover="
-                                this.style.background='rgba(157, 78, 221, 0.05)';
-                                this.style.color='#e2e8f0';
-                            "
-                            onmouseout="
-                                this.style.background='transparent';
-                                this.style.color='#94a3b8';
-                            ">
-                                <i class="fas fa-map-marker-alt" style="
-                                    font-size: 1rem;
-                                    color: #94a3b8;
-                                "></i>
-                                <span style="
-                                    font-size: 0.95rem;
-                                    color: #94a3b8;
-                                    font-weight: 400;
-                                ">
-                                    ${personalInfo.location}
-                                </span>
-                            </div>
-                            
-                            <!-- Separator -->
-                            <div style="
-                                width: 3px;
-                                height: 3px;
-                                border-radius: 50%;
-                                background: rgba(148, 163, 184, 0.15);
-                            "></div>
-                            
+
                             <!-- GitHub -->
                             ${githubLink ? `
                             <a href="${githubLink.url}" 
