@@ -5,7 +5,7 @@ class FooterComponent {
     }
 
     render() {
-        const { footer, personalInfo, socialLinks } = this.config;
+        const { footer } = this.config;
         
         return `
             <footer id="footer" class="section">

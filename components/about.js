@@ -5,7 +5,7 @@ class AboutComponent {
     }
 
     render() {
-        const { about } = this.config;
+        const { about, personalInfo, socialLinks } = this.config;
         
         return `
             <section id="about" class="section">
@@ -19,7 +19,7 @@ class AboutComponent {
                                 ${paragraph}
                             </p>
                         `).join('')}
-                        
+
                         <!-- Skills -->
                         <div class="mt-2">
                             <h3 style="margin-bottom: 1rem; color: var(--accent-blue);">Core Expertise</h3>
@@ -43,41 +43,74 @@ class AboutComponent {
                         </div>
                     </div>
                     
-                    <!-- Statistical information -->
-                    <div class="flex-column gap-2">
-                        <!-- Statistical card -->
-                        <div style="background: rgba(26, 31, 46, 0.8); padding: 2rem; border-radius: var(--border-radius);">
-                            <h3 style="margin-bottom: 1.5rem; color: var(--accent-purple);">By The Numbers</h3>
-                            <div class="grid-3 text-center">
-                                ${about.stats.map(stat => `
-                                    <div>
-                                        <h3 style="font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 0.5rem;">${stat.value}</h3>
-                                        <p style="color: #a0aec0;">${stat.label}</p>
-                                    </div>
+                    <!-- Current status -->
+                    <div style="background: rgba(26, 31, 46, 0.8); padding: 1.5rem; border-radius: var(--border-radius);">
+                        <h3 style="margin-bottom: 1rem; color: var(--accent-green);">Current Focus</h3>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-blue);"></i>
+                                Edge AI deployment on microcontrollers
+                            </li>
+                            <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-purple);"></i>
+                                Procedural generation for 2D games
+                            </li>
+                            <li style="padding-left: 1.5rem; position: relative;">
+                                <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-green);"></i>
+                                Open-source embedded tools development
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact info -->
+                    <div class="mt-2">
+                        <h3 style="color: var(--accent-green); margin-bottom: 1rem;">Contact</h3>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+                                <i class="fas fa-envelope" style="color: var(--accent-blue);"></i>
+                                <a href="mailto:${personalInfo.email}" 
+                                   style="color: #a0aec0; text-decoration: none;">
+                                    ${personalInfo.email}
+                                </a>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--accent-green);"></i>
+                                <span style="color: #a0aec0;">${personalInfo.location}</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 style="color: #a0aec0; font-size: 0.9rem; margin-bottom: 0.8rem;">Follow Me</h4>
+                            <div class="footer-social" style="display: flex; gap: 1rem;">
+                                ${socialLinks.map(link => `
+                                    <a href="${link.url}" 
+                                       target="_blank"
+                                       style="
+                                            color: var(--text-color);
+                                            font-size: 1.2rem;
+                                            padding: 0.5rem;
+                                            border-radius: 50%;
+                                            background: rgba(26, 31, 46, 0.8);
+                                            width: 40px;
+                                            height: 40px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            transition: all 0.3s;
+                                            text-decoration: none;
+                                       "
+                                       onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(0, 217, 255, 0.2)'"
+                                       onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(26, 31, 46, 0.8)'">
+                                        <i class="${link.icon}"></i>
+                                    </a>
                                 `).join('')}
                             </div>
                         </div>
-                        
-                        <!-- Current status -->
-                        <div style="background: rgba(26, 31, 46, 0.8); padding: 1.5rem; border-radius: var(--border-radius);">
-                            <h3 style="margin-bottom: 1rem; color: var(--accent-green);">Current Focus</h3>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                    <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-blue);"></i>
-                                    Edge AI deployment on microcontrollers
-                                </li>
-                                <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                                    <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-purple);"></i>
-                                    Procedural generation for 2D games
-                                </li>
-                                <li style="padding-left: 1.5rem; position: relative;">
-                                    <i class="fas fa-arrow-right" style="position: absolute; left: 0; color: var(--accent-green);"></i>
-                                    Open-source embedded tools development
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
+            </div>
             </section>
         `;
     }

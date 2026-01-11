@@ -7,7 +7,6 @@ Personal pages/
 │   ├── header.js       # Header
 │   ├── about.js        # About
 │   ├── projects.js     # Projects
-│   ├── contact.js      # Contracts
 │   └── footer.js       # Footer
 └── styles/
     └── main.css        # Main style

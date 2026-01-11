@@ -4,7 +4,6 @@ window.siteConfig = {
     personalInfo: {
         name: "xbai",
         title: "Embedded Software Engineer",
-        //tagline: "Independent developer specializing in embedded software, artificial intelligence, and retro game development.",
         email: "573793689@qq.com",
         location: "Shenzhen, China",
         skills: ["C/C++", "Python", "RTOS", "Godot"]
@@ -37,14 +36,6 @@ window.siteConfig = {
             featured: true
         }
     ],
-
-    /* Contact */
-    contact: {
-        title: "Let's Build Something Amazing Together",
-        description: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
-        email: "573793689@qq.com",
-        availability: "Available for freelance work and collaborations"
-    },
 
     /* Footer */
     footer: {

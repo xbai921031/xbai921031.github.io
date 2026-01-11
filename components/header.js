@@ -5,7 +5,7 @@ class HeaderComponent {
     }
 
     render() {
-        const { personalInfo, socialLinks } = this.config;
+        const { personalInfo } = this.config;
         
         return `
             <header class="section text-center">
@@ -57,11 +57,6 @@ class HeaderComponent {
                             </span>
                         `).join('')}
                     </div>
-
-                    <!-- Personal Info -->
-                    <p style="margin-top: 2rem; color: #a0aec0; font-style: italic;">
-                        ${personalInfo.tagline}
-                    </p>
                 </div>
             </header>
         `;
