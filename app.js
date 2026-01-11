@@ -182,3 +182,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     }, 500);
 });
+
+/* Snow display */
+document.addEventListener('DOMContentLoaded', function() {
+    const snowContainer = document.createElement('div');
+    snowContainer.className = 'snow-container';
+    snowContainer.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;';
+    document.body.insertBefore(snowContainer, document.body.firstChild);
+
+    for (let i = 0; i < 40; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'pixel-decoration';
+        
+        const left = Math.random() * 100;
+        const top = -(Math.random() * 100 + 50);
+        const size = 3 + Math.random() * 7;
+        
+        snowflake.style.cssText = `
+            left: ${left}vw;
+            top: ${top}px;
+            width: ${size}px;
+            height: ${size}px;
+            animation-delay: ${Math.random() * 5}s !important;
+        `;
+        
+        snowContainer.appendChild(snowflake);
+    }
+});

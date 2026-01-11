@@ -23,12 +23,15 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
 }
 
 #app {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
+    position: relative;
+    z-index: 2;
 }
 
 /* General style */
@@ -38,6 +41,9 @@ body {
     padding: 2rem;
     margin-bottom: 2rem;
     transition: transform var(--transition-speed);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .section:hover {
@@ -68,19 +74,104 @@ body {
 .mb-1 { margin-bottom: 1rem; }
 .mb-2 { margin-bottom: 1.5rem; }
 
-/* Decoration */
+/* Snowflake decoration */
 .pixel-decoration {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent-blue);
-    z-index: 1;
-    opacity: 0.7;
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, var(--accent-blue), white);
+    border-radius: 50%;
+    z-index: 9999; /* Top */
+    opacity: 0.6;
+    pointer-events: none;
+    filter: blur(0.5px);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+/* Snow size */
+.pixel-decoration:nth-child(odd) {
+    width: 8px;
+    height: 8px;
+    filter: blur(1px);
+    background: white;
+}
+
+.pixel-decoration:nth-child(3n) {
+    width: 4px;
+    height: 4px;
+    filter: blur(0.3px);
+    background: var(--accent-blue);
+    opacity: 0.4;
+}
+
+/* Snow fall */
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes snowfall2 {
+    0% {
+        transform: translateY(-100px) translateX(50px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(100vh) translateX(-50px) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes snowfall3 {
+    0% {
+        transform: translateY(-100px) translateX(-30px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(30px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+.pixel-decoration:nth-child(4n) {
+    animation: snowfall 12s linear infinite;
+}
+
+.pixel-decoration:nth-child(4n+1) {
+    animation: snowfall2 15s linear infinite;
+    animation-delay: 1s;
+}
+
+.pixel-decoration:nth-child(4n+2) {
+    animation: snowfall3 10s linear infinite;
+    animation-delay: 2s;
+}
+
+.pixel-decoration:nth-child(4n+3) {
+    animation: snowfall 8s linear infinite;
+    animation-delay: 3s;
 }
 
 /* Responsive design */
@@ -91,5 +182,13 @@ body {
     
     .grid-2, .grid-3 {
         grid-template-columns: 1fr;
+    }
+
+    .pixel-decoration {
+        display: none;
+    }
+    
+    .pixel-decoration:nth-child(-n+20) {
+        display: block;
     }
 }

@@ -61,30 +61,6 @@ class ProjectsComponent {
                 <div class="projects-grid grid-3">
                     ${projects.map(project => this.renderProjectCard(project)).join('')}
                 </div>
-                
-                <!-- Project summarize -->
-                <div class="project-stats mt-2" style="
-                    display: flex;
-                    justify-content: space-around;
-                    flex-wrap: wrap;
-                    gap: 1rem;
-                    padding: 1.5rem;
-                    background: rgba(26, 31, 46, 0.8);
-                    border-radius: var(--border-radius);
-                ">
-                    <div class="text-center">
-                        <h3 style="color: var(--accent-blue); font-size: 2rem;">${projects.length}</h3>
-                        <p>Total Projects</p>
-                    </div>
-                    <div class="text-center">
-                        <h3 style="color: var(--accent-purple); font-size: 2rem;">${categorizedProjects.embedded.length}</h3>
-                        <p>Embedded Projects</p>
-                    </div>
-                    <div class="text-center">
-                        <h3 style="color: var(--accent-green); font-size: 2rem;">${categorizedProjects.game.length}</h3>
-                        <p>Game Projects</p>
-                    </div>
-                </div>
             </section>
         `;
     }
