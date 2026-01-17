@@ -109,13 +109,7 @@ class PortfolioApp {
         });
 
         document.addEventListener('keydown', (e) => {
-            // Ctrl/Cmd + D switch theme
-            if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
-                e.preventDefault();
-                this.toggleTheme();
-            }
-            
-            // Esc back to top
+            /* Esc back to top */
             if (e.key === 'Escape') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -173,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.head.appendChild(style);
         
-        welcomeMessage.textContent = '✨ Portfolio Loaded Successfully!';
+        welcomeMessage.textContent = '✨ Page Loaded Successfully!';
         document.body.appendChild(welcomeMessage);
         
         setTimeout(() => {

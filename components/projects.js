@@ -69,17 +69,17 @@ class ProjectsComponent {
         const categoryColors = {
             embedded: 'var(--accent-blue)',
             ai: 'var(--accent-purple)',
-            game: 'var(--accent-green)',
-            iot: 'var(--accent-blue)',
-            web: 'var(--accent-purple)'
+            game: 'var(--accent-green)'
+            //iot: 'var(--accent-blue)',
+            //web: 'var(--accent-purple)'
         };
 
         const categoryIcons = {
             embedded: 'fas fa-microchip',
             ai: 'fas fa-brain',
-            game: 'fas fa-gamepad',
-            iot: 'fas fa-wifi',
-            web: 'fas fa-globe'
+            game: 'fas fa-gamepad'
+            //iot: 'fas fa-wifi',
+            //web: 'fas fa-globe'
         };
 
         return `
@@ -135,7 +135,7 @@ class ProjectsComponent {
                         border: 1px solid ${categoryColors[project.category]};
                         border-radius: 4px;
                         font-size: 0.8rem;
-                    ">${project.category.toUpperCase()}</span>
+                    ">${project.category}</span>
                     
                     ${project.link ? `
                         <a href="${project.link}" 
@@ -164,9 +164,9 @@ class ProjectsComponent {
             all: projects,
             embedded: projects.filter(p => p.category === 'embedded'),
             ai: projects.filter(p => p.category === 'ai'),
-            game: projects.filter(p => p.category === 'game'),
-            iot: projects.filter(p => p.category === 'iot'),
-            web: projects.filter(p => p.category === 'web')
+            game: projects.filter(p => p.category === 'game')
+            //iot: projects.filter(p => p.category === 'iot'),
+            //web: projects.filter(p => p.category === 'web')
         };
     }
 
@@ -182,6 +182,22 @@ class ProjectsComponent {
                 });
                 
                 button.classList.add('active');
+                // if(button.dataset.category === all)
+                // {
+                //     button.style.background = 'var(--accent-blue)';
+                // }
+                // if(button.dataset.category === embedded)
+                // {
+                //     button.style.background = 'var(--accent-blue)';
+                // }
+                // if(button.dataset.category === ai)
+                // {
+                //     button.style.background = 'var(--accent-purple)';
+                // }
+                // if(button.dataset.category === game)
+                // {
+                //     button.style.background = 'var(--accent-green)';
+                // }
                 button.style.background = button.dataset.category === 'all' 
                     ? 'var(--accent-blue)' 
                     : button.style.borderColor;

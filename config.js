@@ -25,11 +25,20 @@ window.siteConfig = {
     projects: [
         {
             id: 1,
-            title: "xxx",
+            title: "esp32_prism_display",
             category: "embedded",
-            description: "xxxx.",
-            technologies: ["C", "FreeRTOS"],
-            link: " ",
+            description: "A prism display device developed with ESP32.",
+            technologies: ["C", "FreeRTOS", "ESP32-S3"],
+            link: "https://github.com/xbai921031/esp32_prism_display",
+            featured: true
+        },
+        {
+            id: 2,
+            title: "godot_game",
+            category: "game",
+            description: "2D game.",
+            technologies: ["Godot", "GDScript"],
+            link: "https://github.com/xbai921031/godot_game",
             featured: true
         }
     ],
