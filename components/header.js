@@ -9,7 +9,7 @@ class HeaderComponent {
         
         /* Get github link */
         const githubLink = socialLinks.find(link => link.icon.includes('github'));
-        const otherSocialLinks = socialLinks.filter(link => !link.icon.includes('github'));
+        const youtubeLink = socialLinks.find(link => link.icon.includes('youtube'));
 
         const avatarPath = personalInfo.avatar || '';
         const hasAvatar = avatarPath.trim() !== '';
@@ -102,7 +102,7 @@ class HeaderComponent {
                             </p>
                         </div>
 
-                        <!-- Contact Details + GitHub -->
+                        <!-- Contact Details + GitHub + YouTube-->
                         <div class="contact-details" style="
                             display: flex;
                             align-items: center;
@@ -223,66 +223,51 @@ class HeaderComponent {
                                 </span>
                             </a>
                             ` : ''}
-                        </div>
-                    </div>
 
-                    <!-- Other Social Links -->
-                    ${otherSocialLinks.length > 0 ? `
-                    <div class="social-section" style="
-                        width: 100%;
-                        max-width: 350px;
-                        margin: 2rem auto 2.5rem;
-                    ">
-                        <div class="social-links" style="
-                            display: flex;
-                            justify-content: center;
-                            gap: 1rem;
-                            flex-wrap: wrap;
-                        ">
-                            ${otherSocialLinks.map(link => {
-                                const icon = link.icon;
-                                let platform = icon.includes('linkedin') ? 'LinkedIn' : 
-                                              icon.includes('twitter') ? 'Twitter' : 
-                                              icon.includes('envelope') ? 'Email' : 'Social';
-                                
-                                return `
-                                    <a href="${link.url}" 
-                                       target="_blank"
-                                       style="
-                                            display: flex;
-                                            flex-direction: column;
-                                            align-items: center;
-                                            text-decoration: none;
-                                            width: 55px;
-                                       ">
-                                        <div style="
-                                            width: 40px;
-                                            height: 40px;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                            margin-bottom: 0.5rem;
-                                            border-radius: 8px;
-                                            border: 1px solid rgba(148, 163, 184, 0.12);
-                                        ">
-                                            <i class="${icon}" style="
-                                                font-size: 1.1rem;
-                                                color: #94a3b8;
-                                            "></i>
-                                        </div>
-                                        <span style="
-                                            color: #94a3b8;
-                                            font-size: 0.75rem;
-                                            font-weight: 500;
-                                        ">
-                                            ${platform}
-                                        </span>
-                                    </a>
-                                `;
-                            }).join('')}
+                            <!-- Separator -->
+                            <div style="
+                                width: 3px;
+                                height: 3px;
+                                border-radius: 50%;
+                                background: rgba(148, 163, 184, 0.15);
+                            "></div>
+
+                            <!-- YouTube -->
+                            ${youtubeLink ? `
+                            <a href="${youtubeLink.url}" 
+                               target="_blank"
+                               style="
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 0.5rem;
+                                    text-decoration: none;
+                                    color: #94a3b8;
+                                    transition: all 0.2s ease;
+                                    padding: 0.3rem 0.6rem;
+                                    border-radius: 4px;
+                               "
+                               onmouseover="
+                                    this.style.color='#e2e8f0';
+                                    this.style.background='rgba(111, 84, 148, 0.05)';
+                               "
+                               onmouseout="
+                                    this.style.color='#94a3b8';
+                                    this.style.background='transparent';
+                               ">
+                                <i class="fab fa-youtube" style="
+                                    font-size: 1rem;
+                                    color: #94a3b8;
+                                "></i>
+                                <span style="
+                                    font-size: 0.95rem;
+                                    font-weight: 400;
+                                ">
+                                    YouTube
+                                </span>
+                            </a>
+                            ` : ''}
                         </div>
                     </div>
-                    ` : ''}
                 </div>
             </header>
         `;

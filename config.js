@@ -11,7 +11,8 @@ window.siteConfig = {
 
     /* Social media links */
     socialLinks: [
-        { name: "GitHub", icon: "fab fa-github", url: "https://github.com/xbai921031" }
+        { name: "GitHub", icon: "fab fa-github", url: "https://github.com/xbai921031" },
+        { name: "YouTube ", icon: "fab fa-youtube", url: "https://www.youtube.com/@xbai1031" }
     ],
 
     /* About */
@@ -25,11 +26,11 @@ window.siteConfig = {
     projects: [
         {
             id: 1,
-            title: "esp32_prism_display",
+            title: "esp32-ClawBot",
             category: "embedded",
-            description: "A prism display device developed with ESP32.",
-            technologies: ["C", "FreeRTOS", "ESP32-S3"],
-            link: "https://github.com/xbai921031/esp32_prism_display",
+            description: "AI Agent on ESP32.",
+            technologies: ["C", "FreeRTOS", "ESP32-S3", "mimiclaw"],
+            link: "https://github.com/xbai921031/esp32-ClawBot",
             featured: true
         },
         {
